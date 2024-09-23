@@ -6,13 +6,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Button
 import android.widget.EditText
+import androidx.recyclerview.widget.DividerItemDecoration
 
 class MainActivity : AppCompatActivity() {
 
     private val mahasiswaList = mutableListOf(
-        Mahasiswa("101", "John Doe"),
-        Mahasiswa("102", "Jane Smith"),
-        Mahasiswa("103", "Michael Jordan")
+        Mahasiswa("225150407111086", "ACHMAD FIRDAUS ATTALEA YESSA"),
+        Mahasiswa("225150400111050", "BANGKIT AGUNG LAKSONO"),
+        Mahasiswa("225150400111049", "LAURENSIUS NATHAN SURYA RACHMANTO"),
+        Mahasiswa("225150407111096", "SULTHAN MUHAMMAD RAFIF ILHAM")
     )
 
     private lateinit var adapter: MahasiswaAdapter
@@ -25,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         val etNim = findViewById<EditText>(R.id.etNim)
         val etNama = findViewById<EditText>(R.id.etNama)
         val btnSimpan = findViewById<Button>(R.id.btSimpan)
+
+        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
+        recyclerView.addItemDecoration(dividerItemDecoration)
 
         adapter = MahasiswaAdapter(mahasiswaList)
         recyclerView.layoutManager = LinearLayoutManager(this)
